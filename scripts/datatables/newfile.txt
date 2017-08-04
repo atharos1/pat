@@ -1,0 +1,21 @@
+SELECT protocolos.Id as Identificador
+, CONCAT(Medicos.Apellido, ', ', Medicos.Nombre) as Medico
+, CONCAT(Pacientes.Apellido, ', ', Pacientes.Nombre, ' (', Pacientes.DNI, ')') as Paciente
+, Partes.Nombre as Localizacion
+, Hospitales.Nombre as Hospital
+, protocolos.Cuando as FechaIngreso
+, CONCAT(protocolos.Estado, "|", LEFT(protocolos.MailSend,1)) as Estado
+
+
+			 FROM `protocolos`
+
+              Left Join Pacientes On Pacientes.ID = protocolos.PacienteID 
+Left Join Medicos On Protocolos.MedicoID = Medicos.ID 
+Left Join Partes On Partes.ID = Protocolos.Localizacion 
+Left Join Hospitales On Hospitales.ID = Protocolos.HospitalID 
+
+			 
+
+			 ORDER BY FechaIngreso DESC
+
+			 LIMIT 0, 15
