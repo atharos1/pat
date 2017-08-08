@@ -129,8 +129,14 @@
                     switch (resp.Codigo) {
                         case 1: //Todo ok
                         case 3:
-                            if( resp.Codigo == 1 ) window.location = "protocolos.php";
-                            if( resp.Codigo == 3 ) window.location = "config.php"; //Primer inicio
+                            if( resp.Codigo == 1 ) {
+                                var where = getParameterByName("url");
+                                if( where != null ) 
+                                    window.location = where;
+                                else
+                                    window.location = "protocolos.php";
+                            } else if( resp.Codigo == 3 ) 
+                                window.location = "config.php"; //Primer inicio
 
                             if( form.Recordar == 1 ) 
                                 localStorage.Recordar = form.Usuario;
