@@ -1,8 +1,33 @@
 <?php
 
-
-
 $html = '
+
+
+<h1>Protocolo #XXXX</h1>
+<table border="1" width="100%">
+    <tr>
+        <td class="titulo">Paciente:</td>
+        <td class="dato">Elver Galarla</td>
+    </tr>
+    <tr>
+        <td class="titulo">Cobertura:</td>
+        <td class="dato">Osde 410 (nº 44.769.614)</td>
+    </tr>
+</table>
+';
+
+$stylesheet = '
+<style>
+    .titulo {
+        width: 30%;
+    }
+    .dato {
+        width:70%;
+    }
+</style>
+';
+
+$html1 = '
 <h1>mPDF</h1>
 <h2>Tables</h2>
 <h3>CSS Styles</h3>
@@ -1002,8 +1027,10 @@ $mpdf->SetDisplayMode('fullpage');
 $mpdf->list_indent_first_level = 0;	// 1 or 0 - whether to indent the first level of a list
 
 // LOAD a stylesheet
-$stylesheet = file_get_contents('mpdfstyletables.css');
 $mpdf->WriteHTML($stylesheet,1);	// The parameter 1 tells that this is css/style only and no body/html/text
+
+$stylesheet = file_get_contents('mpdfstylePaged.css');
+$mpdf->WriteHTML($stylesheet,1);
 
 $mpdf->WriteHTML($html,2);
 

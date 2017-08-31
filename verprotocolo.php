@@ -272,8 +272,6 @@
                         </div>
                     </a>
                 </div>
-
-                <!--<a href="messages.html" class="btn btn--action btn--fixed btn-danger"><i class="zmdi zmdi-plus"></i></a>-->
             </aside>
 
             <section class="content content--full">
@@ -318,23 +316,26 @@
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <label>Historial clínico</label>
+
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <label>Historial clínico</label>
+                                <div class="form-group">
                                     <input type="text" class="form-control formControl" id="HistorialClinico" placeholder="Historial clínico">
                                     <i class="form-group__bar"></i>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <div class="row">
-                                <div class="col-sm-8">
+                        <div class="row">
+                            <div class="col-sm-8">
+                                <div class="form-group">
                                     <label>Diagnóstico presuntivo </label>
                                     <input type="text" class="form-control formControl" id="DiagnosticoPresuntivo" placeholder="Diagnóstico presuntivo">                                    <i class="form-group__bar"></i>
                                 </div>
-                                <div class="col-sm-4">
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
                                     <label>Fecha de orden</label>
                                     <input type="tel" class="form-control input-mask formControl" id="FechaOrden" placeholder="Fecha de orden" data-mask="00/00/0000">
                                     <i class="form-group__bar"></i>
@@ -349,10 +350,12 @@
                                         <div class="card-header">
                                             <label>Material recibido</label>
                                             <ul class="actions">
-                                                <li> <a id="lnkMatEnv" data-toggle="modal" href="#modalMatEnv" onclick="CargaMatEnv();"> <i class="zmdi zmdi-plus-circle-o" data-toggle="tooltip"
-                                                data-placement="bottom" title="Añadir material recibido a la lista"></i> </a> </li>
+                                                <a id="lnkMatEnv" data-toggle="modal" href="#modalMatEnv" onclick="CargaMatEnv();">
+                                                    <i class="actions__item zmdi zmdi-plus-circle-o" data-toggle="tooltip" data-placement="bottom" title="Añadir material recibido a la lista"></i>
+                                                </a>
                                             </ul>
                                         </div>
+
                                         <div class="card-block">
                                             <div class="row">
                                                 <div class="col-sm-2">
@@ -371,22 +374,92 @@
                                             <div class="card-body table-responsive">
                                                 <table class="table" id="MatEnv">
                                                     <thead>
-                                                    <tr>
-                                                        <th>Material</th>
-                                                        <th>Cantidad</th>
-                                                        <th>Fijado en</th>
-                                                        <th>Obtenido por</th>
-                                                        <th>Contenido</th>
-                                                        <th>Observaciones</th>
-                                                        <th>Acciones</th>
-                                                    </tr>
+                                                        <tr>
+                                                            <th>Material</th>
+                                                            <th>Cantidad</th>
+                                                            <th>Fijado en</th>
+                                                            <th>Obtenido por</th>
+                                                            <th>Contenido</th>
+                                                            <th>Observaciones</th>
+                                                            <th>Acciones</th>
+                                                        </tr>
                                                     </thead>
                                                     <tbody id="MatEnvBody">
-                                                    
+                                                        
                                                     </tbody>
                                                 </table>
                                             </div>
 
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h2 class="card-title">Informes</h2>
+                            </div>
+
+                            <div class="card-block">
+                                <div class="tab-container">
+                                    <ul class="nav nav-tabs nav-fill" role="tablist">
+                                        <li class="nav-item">
+                                            <a class="nav-link active" data-toggle="tab" href="#informe_principal" role="tab">Informe principal</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" data-toggle="tab" href="#informe_complementario" role="tab">Informe complementario</a>
+                                        </li>
+                                    </ul>
+
+                                    <div class="tab-content">
+                                        <div class="tab-pane active fade show" id="informe_principal" role="tabpanel">
+                                            <textarea class="form-control" rows="15"></textarea>
+                                        </div>
+                                        <div class="tab-pane fade" id="informe_complementario" role="tabpanel">
+                                            <textarea class="form-control" rows="15"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group fg-line">
+                            <div class="card">
+                                <div class="card-header">
+                                    <label>Diagnóstico</label>
+                                </div>
+                                <div class="card-block">
+                                    <div class="form-group fg-line">
+                                        <div class="row">
+                                            <div class="col-sm-4">
+                                               <label>Diagnóstico patológico 1</label>
+                                               <div>
+                                                  <div style="display:inline-block;" id="DiagPatol1" data-id="0">Ninguno seleccionado.</div>
+                                                  <a id="lnkDiag1" data-toggle="modal" href="#modalSelect" onclick="IniciaDiagnosticos(1);"> (Cambiar selección)</a>
+                                               </div>
+                                            </div>
+                                            <div class="col-sm-2">
+                                                <label class="custom-control custom-checkbox">
+                                                    <input type="checkbox" id="Duda1" class="custom-control-input">
+                                                    <span class="custom-control-indicator"></span>
+                                                    <span class="custom-control-description">Duda</span>
+                                                </label>
+                                            </div>
+                                            <div class="col-sm-4">
+                                               <label>Diagnóstico patológico 2</label>
+                                               <div>
+                                                  <div style="display:inline-block;" id="DiagPatol2" data-id=0>Ninguno seleccionado.</div>
+                                                  <a id="lnkDiag2" data-toggle="modal" href="#modalSelect" onclick="IniciaDiagnosticos(2);"> (Cambiar selección)</a>
+                                               </div>
+                                            </div>
+                                            <div class="col-sm-2">
+                                                <label class="custom-control custom-checkbox">
+                                                    <input type="checkbox" id="Duda2" class="custom-control-input">
+                                                    <span class="custom-control-indicator"></span>
+                                                    <span class="custom-control-description">Duda</span>
+                                                </label>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

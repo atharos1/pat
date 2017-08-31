@@ -54,7 +54,7 @@ $sql_details = array(
     'pass' => 'ventormenta1',
     'db'   => 'patol',
     'host' => 'localhost'
-);
+); //????
  
  
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *

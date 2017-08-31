@@ -50,13 +50,7 @@ $columns = array(
 $join="";
 
 // SQL server connection information
-$sql_details = array(
-    'user' => 'root',
-    'pass' => 'ventormenta1',
-    'db'   => 'patol',
-    'host' => 'localhost'
-);
- 
+require( 'mysql-conn.php' );
  
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  * If you just want to use the basic configuration for DataTables with PHP

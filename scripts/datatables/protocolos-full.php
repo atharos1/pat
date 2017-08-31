@@ -79,12 +79,7 @@ Left Join Hospitales On Hospitales.ID = Protocolos.HospitalID
 Left Join DiagPatol On DiagPatol.ID = Protocolos.Tumor1 ";
 
 // SQL server connection information
-$sql_details = array(
-    'user' => 'root',
-    'pass' => 'ventormenta1',
-    'db'   => 'patol',
-    'host' => 'localhost'
-);
+require( 'mysql-conn.php' );
  
  
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
